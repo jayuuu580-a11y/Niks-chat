@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niks Chat</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101010;
+      color: white;
+    }
+    header {
+      background: #e50914;
+      padding: 20px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    main {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+    .panel {
+      background: #202020;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    input, button {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background: #e50914;
+      color: white;
+      font-weight: bold;
+    }
+    #messages {
+      margin-top: 20px;
+      overflow-wrap: anywhere;
+    }
+    .message {
+      background: #333;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>🤖 Niks Chat</header>
+  <main>
+    <div class="panel">
+      <h2>Welcome to Niks Chat</h2>
+      <input id="name" placeholder="Apna naam likho">
+      <input id="message" placeholder="Message likho">
+      <button onclick="sendMessage()">Send Message</button>
+      <div id="messages"></div>
+    </div>
+  </main>
+  <script>
+    function sendMessage() {
+      const name = document.getElementById("name").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !message) {
+        alert("Naam aur message dono likho!");
+        return;
+      }
+
+      const item = document.createElement("div");
+      item.className = "message";
+      item.textContent = name + ": " + message;
+      document.getElementById("messages").appendChild(item);
+      document.getElementById("message").value = "";
+    }
+  </script>
+</body>
+</html>
